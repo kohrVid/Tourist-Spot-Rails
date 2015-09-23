@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+Rakefile
+config/database.yml
+config/secrets.yml
