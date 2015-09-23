@@ -1,0 +1,18 @@
+<header>
+	<div class = "row" style = "padding-top:20px;">
+		<div class = "col-md-3">
+			<h1><%=image_tag "logo.png", :height => 100 %></h1>
+		</div>
+
+		<div class = "col-md-9">
+			<div class = "btn-group pull-right">
+				<%=link_to "Home", root_path, type: "button", class: "btn btn-primary active" %>
+				<%=link_to "Services", "#", type: "button", class: "btn btn-primary active" %>
+				<%=link_to "About Us", about_path, type: "button", class: "btn btn-primary active" %>
+				<%=link_to "FAQ", faq_path, type: "button", class: "btn btn-primary active" %>
+				<%=link_to "Contact Us", contact_path, type: "button", class: "btn btn-primary active" %>
+			</div>
+		</div>
+	</div>
+</header>
+
