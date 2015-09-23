@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :carousels
+  get 'carousel/image_url'
+
+  get 'carousel/image_description'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,6 +13,8 @@ Rails.application.routes.draw do
    get  'about' 	=>  'main#about'
    get  'contact'	=>  'main#contact'
    get  'faq'   	=>  'main#faq'
+
+#   resources :carousel, only[:image_url, :image_description]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
