@@ -37,10 +37,12 @@
 <div class = "row">
 	<% @carousel.each do |i|  %>
 		<div class = "col-md-4">
-			<%= image_tag i.to_a.second, :width => "50%"  %>
-			<h4>Tourist Spot <%= i.to_a.first%></h4>
-			<p><%= i.to_a.third%></p>
-			<br />
+			<%= link_to "assets/#{i.to_a.second}", class: "thumbnail" do%>
+				<%= image_tag i.to_a.second, :width => "50%"  %>
+				<h4>Tourist Spot <%= i.to_a.first%></h4>
+				<p><%= i.to_a.third%></p>
+			<%end%>
+				<br />
 	</div>
 	<%end%>
 </div>

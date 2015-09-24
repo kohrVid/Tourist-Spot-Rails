@@ -19,7 +19,7 @@
 					<div class = "panel-body"><%= service.room %></div>
 					<div class = "panel-body"><%= service.food %></div>
 					<div class = "panel-footer">
-						<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
+						<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(service), removeUrl: remove_from_cart_path(service), reload: true} do %>
 							<i class = "glyphicon glyphicon-shopping-cart"></i>
 							<span><%=@cart_action%></span> Cart
 						<%end%>

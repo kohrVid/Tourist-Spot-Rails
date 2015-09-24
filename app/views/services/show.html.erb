@@ -11,12 +11,12 @@
 </p>
 
 <p>
-  <strong>Contents:</strong>
+  <strong>Description:</strong>
   <%= @service.contents %>
 </p>
 
 <p>
-  <strong>Guide:</strong>
+  <strong>Guides:</strong>
   <%= @service.guide %>
 </p>
 
@@ -29,6 +29,10 @@
   <strong>Food:</strong>
   <%= @service.food %>
 </p>
+						<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
+							<i class = "glyphicon glyphicon-shopping-cart"></i>
+							<span><%=@cart_action%></span> Cart
+						<%end%>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>

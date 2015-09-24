@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources 'carousels', only: [:new, :create]
   resources 'contacts', only: [:new, :create]
   resource :cart, only: [:show] do
-	  put 'add/:service_id', to: 'cart#add', as: :add_to
+	  put 'add/:service_id', to: 'carts#add', as: :add_to
 	  put 'remove/:service_id', to: 'carts#remove', as: :remove_from
   end
 

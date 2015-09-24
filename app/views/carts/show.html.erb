@@ -1,18 +1,28 @@
 <% provide(:title, 'My Cart') %>
 
-<div class = "row text-center">
+<div id = "mycart" class = "row text-center">
 	<div class = "col-md-12">
 		<h2 style = "margin: 0;"><b>My Cart</b></h2>
+		<p>You've selected <%= pluralize(current_user.cart_count, "service") %>.</p>
+
+		<% @cart_services.each do |service| %>
+			<div data-equalizer class = "cart-service">
+				<div class = "label label-lg">
+					<%=link_to service_path(service) do%>
+						<h4><%=service.name%></h4>
+						<p>£<%= sprintf("%.2f", service.price) %>
+					<h4><%= link_to "", class: "remove", data: {targetUrl: remove_from_cart_path(service)} do %>
+								<i class = "glyphicon glyphicon-remove-sign"><span></span></i>
+							<%end%></h4>
+						</p>
+				
+	
+					<%end%>
+				</div>
+			</div>
+		<%end%>
+
 	</div>
-
-	<hr />
-
-	<p>You've selected <span class ="cart-count"><%=current_user.cart_count%></span> services.</p>
-
-	<% @cart_services.each do |service| %>
-		<%= link_to service.name cart %>
-	<%end%>
-
 </div>
 
 

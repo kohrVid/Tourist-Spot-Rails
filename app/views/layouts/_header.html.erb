@@ -19,6 +19,10 @@
 						<%=link_to "Sign Up", new_user_registration_path, type: "button", class: "btn btn-primary active" %>
 				<%end%>
 				<% if signed_in? %>
+					<%=link_to cart_path, type: "button", class: "btn btn-primary active" do %>
+					<i class = "glyphicon glyphicon-shopping-cart"></i>
+					My Cart  <span class = "cart-count badge" style = "font-size: 0.8em;"><%= current_user.cart_count %></span>
+					<%end%>
 					<%=link_to "Log out", destroy_user_session_path, method: :delete, type: "button", class: "btn btn-primary active" %>
 				<% else %>
 					<%=link_to "Log In", new_user_session_path, type: "button", class: "btn btn-primary active" %>
