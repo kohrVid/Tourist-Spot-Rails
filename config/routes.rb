@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :carousels
+  resources "carousels", only: [:new, :create]
+  resources "contacts", only: [:new, :create]
   get 'carousel/image_url'
 
   get 'carousel/image_description'
@@ -11,7 +12,8 @@ Rails.application.routes.draw do
    root 'main#index'
 
    get  'about' 	=>  'main#about'
-   get  'contact'	=>  'main#contact'
+   get  'contacts'	=>  'contact#new'
+   post 'contacts'	=>  'contact#create'
    get  'faq'   	=>  'main#faq'
 
 #   resources :carousel, only[:image_url, :image_description]
