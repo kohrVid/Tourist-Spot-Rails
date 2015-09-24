@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
   gem 'bootstrap-sass', '~> 3.1.1'
   gem 'autoprefixer-rails' #recommended for bootstrap SASS installation
+  gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
