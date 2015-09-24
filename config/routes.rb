@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  resources :services, only: [:index]
-  devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources "carousels", only: [:new, :create]
-  resources "contacts", only: [:new, :create]
-  get 'carousel/image_url'
 
-  get 'carousel/image_description'
+  resources :services do
+	  put 'cart', to: 'services#purchased'
+  end
+  devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
+  resources 'carousels', only: [:new, :create]
+  resources 'contacts', only: [:new, :create]
+  resource :cart, only: [:show] do
+	  put 'add/:service_id', to: 'cart#add', as: :add_to
+	  put 'remove/:service_id', to: 'carts#remove', as: :remove_from
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,6 +21,13 @@ Rails.application.routes.draw do
    get  'contacts'	=>  'contact#new'
    post 'contacts'	=>  'contact#create'
    get  'faq'   	=>  'main#faq'
+   get  'services'	=>  'services#index'
+
+  get 'carts/show'
+  get 'carousel/image_url'
+
+  get 'carousel/image_description'
+  
 
 #   resources :carousel, only[:image_url, :image_description]
 

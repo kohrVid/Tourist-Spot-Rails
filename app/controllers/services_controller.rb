@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.all
+   # @cart_action = @service.cart_action current_user.try :id
   end
 
   # GET /services/1
