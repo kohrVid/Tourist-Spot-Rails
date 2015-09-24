@@ -1,0 +1,28 @@
+<% provide(:title, 'Services') %>
+<div class = "row text-center">
+
+	<div class = "col-md-12">
+		<h2 style = "margin: 0;"><b>Services</b></h2>
+	</div>
+
+	<hr />
+	<div class = "row text-center">
+		<% @services.each do |service| %>
+			<div class = "col-md-4">
+				<div class = "panel panel-success">
+					<%= service.name %>
+				</div>
+				<div class = "panel panel-default">
+					<div class = "panel-heading">£<%= sprintf("%.2f", service.price) %></div>
+					<div class = "panel-body"><%= service.contents%></div>
+					<div class = "panel-body"><%= pluralize(service.guide, "Guide") %></div>
+					<div class = "panel-body"><%= service.room %></div>
+					<div class = "panel-body"><%= service.food %></div>
+					<div class = "panel-footer">
+						<%= link_to "Buy Now", "#", class: "btn btn-primary active"%>
+					</div>
+				</div>
+			</div>
+		<%end%>
+	</div>
+</div>

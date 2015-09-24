@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  price: 1.5
+  contents: MyText
+  guide: 1
+  room: MyText
+  food: MyText
+
+two:
+  name: MyText
+  price: 1.5
+  contents: MyText
+  guide: 1
+  room: MyText
+  food: MyText

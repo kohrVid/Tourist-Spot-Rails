@@ -10,3 +10,7 @@ require 'csv'
 CSV.foreach(Rails.root.join("db/seeds_data/carousel.csv"), headers: true) do |row|
 	Carousel.find_or_create_by(image_url: row[0], image_description: row[1])
 end
+require 'csv'
+CSV.foreach(Rails.root.join("db/seeds_data/service.csv"), headers: true) do |row|
+	Service.find_or_create_by(name: row[0], price: row[1], contents: row[2], guide: row[3], room: row[4], food: row[5] )
+end
