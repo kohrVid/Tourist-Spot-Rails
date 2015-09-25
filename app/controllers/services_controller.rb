@@ -15,15 +15,29 @@ class ServicesController < ApplicationController
   def show
 	  @service = Service.find(params[:id])
 	  @cart_action = @service.cart_action current_user.try :id
+#	 @admin = User.find(current_user.id).admin unless current_user.id.nil?
   end
 
   # GET /services/new
   def new
     @service = Service.new
+    if current_user && current_user.admin?
+	 render 'new'
+    else
+	 render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
+    end
+
   end
+ 
 
   # GET /services/1/edit
   def edit
+	 if current_user && current_user.admin?
+		 render 'edit'
+	 else
+		 render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
+	 end
+
   end
 
   # POST /services
@@ -64,6 +78,7 @@ class ServicesController < ApplicationController
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private

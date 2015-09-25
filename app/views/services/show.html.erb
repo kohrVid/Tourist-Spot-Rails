@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @service.name %>
+  <h4>
+	  <%= @service.name %>
+  </h4>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @service.price %>
+  £<%= sprintf("%.2f", @service.price)%>
 </p>
 
 <p>
@@ -29,10 +30,19 @@
   <strong>Food:</strong>
   <%= @service.food %>
 </p>
-						<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
-							<i class = "glyphicon glyphicon-shopping-cart"></i>
-							<span><%=@cart_action%></span> Cart
-						<%end%>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
+	<i class = "glyphicon glyphicon-shopping-cart"></i>
+	<span><%=@cart_action%></span> Cart
+<%end%>
+
+<div>
+	<% if current_user && current_user.admin? %>
+		<%= link_to 'Edit', edit_service_path(@service) %> |
+		<%= link_to 'Back', services_path %>
+	<%else%>
+		 <%= link_to 'Back to Services', services_path %>
+
+	 <%end%>
+</div>
+	 

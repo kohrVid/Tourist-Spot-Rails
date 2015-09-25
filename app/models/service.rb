@@ -1,4 +1,6 @@
 class Service < ActiveRecord::Base
+	has_many :purchases
+	has_many :buyers, through: :purchases
 
 	def cart_action(current_user_id)
 		if $redis.sismember "cart#{current_user_id}", id
