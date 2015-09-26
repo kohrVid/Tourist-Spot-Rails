@@ -1,0 +1,15 @@
+<% provide(:title, 'Edit Frequently Asked Question') %>
+<div class = "row">
+	<div class = "col-md-9 columns">
+
+		<h4><b>FAQ #<%=@faq.id%></b></h4>
+
+		 <%= render 'form' %>
+
+		 <br />
+
+		<%= link_to 'Show', @faq %> |
+		<%= link_to 'Destroy', @faq, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+		<%= link_to 'Back', faqs_path %>
+	</div>
+</div>

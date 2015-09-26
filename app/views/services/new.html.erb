@@ -1,5 +1,13 @@
-<h1>New Service</h1>
+<% provide(:title, 'New Service') %>
+<div class = "row">
+	<div class = "col-md-9 columns">
+		<h2 style = "margin: 0;"><b>New Service</b></h2>
 
-<%= render 'form' %>
+		<br />
 
-<%= link_to 'Back', services_path %>
+		<%= render 'form' %>
+
+		<%= link_to 'Back', services_path %>
+
+	</div>
+</div>

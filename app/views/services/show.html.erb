@@ -1,48 +1,49 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @service.name) %>
+<div class = "row">
+	<div class = "col-md-9 columns">
+		<h4><%=@service.name%></h4>
 
-<p>
-  <h4>
-	  <%= @service.name %>
-  </h4>
-</p>
+		<p>
+		  <strong>Price:</strong>
+		  £<%= sprintf("%.2f", @service.price)%>
+		</p>
 
-<p>
-  <strong>Price:</strong>
-  £<%= sprintf("%.2f", @service.price)%>
-</p>
+		<p>
+		  <strong>Description:</strong>
+		  <%= @service.contents %>
+		</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @service.contents %>
-</p>
+		<p>
+		  <strong>Guides:</strong>
+		  <%= @service.guide %>
+		</p>
 
-<p>
-  <strong>Guides:</strong>
-  <%= @service.guide %>
-</p>
+		<p>
+		  <strong>Room:</strong>
+		  <%= @service.room %>
+		</p>
 
-<p>
-  <strong>Room:</strong>
-  <%= @service.room %>
-</p>
+		<p>
+		  <strong>Food:</strong>
+		  <%= @service.food %>
+		</p>
 
-<p>
-  <strong>Food:</strong>
-  <%= @service.food %>
-</p>
+		<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
+			<i class = "glyphicon glyphicon-shopping-cart"></i>
+			<span><%=@cart_action%></span> Cart
+		<%end%>
 
-<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
-	<i class = "glyphicon glyphicon-shopping-cart"></i>
-	<span><%=@cart_action%></span> Cart
-<%end%>
+		<div>
+			<% if current_user && current_user.admin? %>
+				<%= link_to 'Edit', edit_service_path(@service) %> |
+				<%= link_to 'Destroy', @service, method: :delete, data: {confirm: 'Are you sure?'}%> |
+				<%= link_to 'Back', services_path %>
+			<%else%>
+				 <%= link_to 'Back to Services', services_path %>
 
-<div>
-	<% if current_user && current_user.admin? %>
-		<%= link_to 'Edit', edit_service_path(@service) %> |
-		<%= link_to 'Back', services_path %>
-	<%else%>
-		 <%= link_to 'Back to Services', services_path %>
+			 <%end%>
+		</div>
 
-	 <%end%>
+	</div>
 </div>
 	 

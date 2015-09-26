@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
 
-  resources :transactions, only: [:new, :create]
+  resources :faqs
+  resources :transactions, only: [:new, :create, :edit ]
   resources :services do
 	  put 'cart', to: 'services#purchased'
   end
   devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources 'carousels', only: [:new, :create]
+  resources :carousels #, only: [:new, :create, :edit, :delete]
   resources 'contacts', only: [:new, :create]
   resource 'cart', only: [:show] do
 	  put 'add/:service_id', to: 'carts#add', as: :add_to
@@ -22,12 +23,11 @@ Rails.application.routes.draw do
    get  'about' 	=>  'main#about'
    get  'contacts'	=>  'contacts#new'
    post 'contacts'	=>  'contacts#create'
-   get  'faq'   	=>  'main#faq'
+   get  'faq'   	=>  'faqs#index'
    get  'services'	=>  'services#index'
 
   get 'carts/show'
   get 'carousel/image_url'
-
   get 'carousel/image_description'
   get 'transactions'	=>  'transactions#new'
   

@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Carousel Image #' + @carousel.id.to_s) %>
+<div class = "row">
+	<div class = "col-md-9 columns">
+		<h4>Carousel Image #<%=@carousel.id%></h4>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @carousel.image_url %>
-</p>
 
-<p>
-  <strong>Image description:</strong>
-  <%= @carousel.image_description %>
-</p>
+		<p>
+		  <strong>Image url:</strong>
+		  <%= @carousel.image_url %>
+		</p>
 
-<%= link_to 'Edit', edit_carousel_path(@carousel) %> |
-<%= link_to 'Back', carousels_path %>
+		<p>
+		  <strong>Image description:</strong>
+		  <%= @carousel.image_description %>
+		</p>
+
+		<br />
+
+		<% if current_user && current_user.admin? %>
+			<%= link_to 'Edit', edit_carousel_path(@carousel) %> |
+			<%= link_to 'Destroy', @carousel, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+
+		<%end%>
+			<%= link_to 'Back', carousels_path %>
+	</div>
+</div>

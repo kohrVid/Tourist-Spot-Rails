@@ -1,5 +1,12 @@
-<h1>New Carousel</h1>
+<% provide(:title, 'New Carousel Image') %>
+<div class = "row">
+	<div class = "col-md-9 columns">
+		<h2 style = "margin: 0;"><b>New Carousel Image</b></h2>
 
-<%= render 'form' %>
+		<br />
 
-<%= link_to 'Back', carousels_path %>
+		<%= render 'form' %>
+	
+		<%= link_to 'Back', carousels_path %>
+	</div>
+</div>

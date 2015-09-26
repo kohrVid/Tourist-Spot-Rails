@@ -5,6 +5,12 @@ class CarouselsController < ApplicationController
   # GET /carousels.json
   def index
     @carousels = Carousel.all
+    if current_user && current_user.admin?
+	    render 'index'
+    else
+	    render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
+    end
+
   end
 
   # GET /carousels/1
@@ -15,10 +21,23 @@ class CarouselsController < ApplicationController
   # GET /carousels/new
   def new
     @carousel = Carousel.new
+    if current_user && current_user.admin?
+	    render 'new'
+    else
+	    render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
+    end
+
+
   end
 
   # GET /carousels/1/edit
   def edit
+    if current_user && current_user.admin?
+	    render 'edit'
+    else
+	    render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
+    end
+
   end
 
   # POST /carousels

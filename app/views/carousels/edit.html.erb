@@ -1,6 +1,14 @@
-<h1>Editing Carousel</h1>
+<% provide(:title, 'Edit Carousel Image') %>
+<div class = "row">
+	<div class = "col-md-9 columns">
 
-<%= render 'form' %>
+		<h4><b>Carousel #<%=@carousel.id%></b></h4>
 
-<%= link_to 'Show', @carousel %> |
-<%= link_to 'Back', carousels_path %>
+		<%= render 'form' %>
+<br />
+
+		<%= link_to 'Show', @carousel %> |
+		<%= link_to 'Destroy', @carousel, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+		<%= link_to 'Back', carousels_path %>
+	</div>
+</div>

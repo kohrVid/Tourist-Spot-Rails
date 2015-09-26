@@ -1,0 +1,41 @@
+<% provide(:title, 'FAQs') %>
+
+<div class = "row text-center">
+	<div class = "col-md-12">
+		<h2 style = "margin: 0;"><b>FAQs</b></h2>
+	</div>
+
+	<hr />
+	<div class = "panel-group" id = "accordion">
+		<% @faqs.each do |faq| %>
+			<div class = "panel panel-default">
+				<div class = "panel-heading">
+					<h4 class = "panel-title">
+						<a data-toggle = "collapse" data-parent = "#accordion" href = "#collapse<%=faq.id%>">
+							<%= faq.question %>
+						</a>
+					</h4>
+				</div>
+
+				<div id = "collapse<%=faq.id%>" class = "panel-collapse collapse">
+					<div class = "panel-body">
+						<%= faq.answer %>
+						<% if current_user && current_user.admin? %>
+							<td><%= link_to 'Show', faq %></td>
+							<td><%= link_to 'Edit', edit_faq_path(faq) %></td>
+							<td><%= link_to 'Destroy', faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						<%end%>
+					</div>
+				</div>
+			</div>
+		<%end%>
+
+	
+	
+	</div>
+</div>
+
+
+
+
+<%= link_to_if(current_user && current_user.admin?, 'New Frequently Asked Question', new_faq_path){} %>

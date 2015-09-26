@@ -23,9 +23,17 @@
 							<i class = "glyphicon glyphicon-shopping-cart"></i>
 							<span><%=@cart_action%></span> Cart
 						<%end%>
+						<% if current_user && current_user.admin? %>
+							<div>
+					<%= link_to 'Edit', edit_service_path(service) %> |
+					<%= link_to 'Destroy', service, method: :delete, data: {confirm: 'Are you sure?'}%>
+
+							</div>
+						<%end%>
 					</div>
 				</div>
 			</div>
 		<%end%>
+		<%=  link_to_if(current_user && current_user.admin?, 'New Service', new_service_path){} %>
 	</div>
 </div>

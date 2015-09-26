@@ -1,0 +1,25 @@
+<% provide(:title, 'Frequently Asked Question #' + @faq.id.to_s) %>
+<div class = "row">
+	<div class = "col-md-9 columns">
+		<h4>FAQ #<%=@faq.id%></h4>
+	<p>
+	  <strong>Question:</strong>
+	  <%= @faq.question %>
+	</p>
+
+	<p>
+	  <strong>Answer</strong>
+	  <%= @faq.answer %>
+	</p>
+
+
+		<br />
+
+		<% if current_user && current_user.admin? %>
+			<%= link_to 'Edit', edit_faq_path(@faq) %> |
+			<%= link_to 'Destroy', @faq, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+
+		<%end%>
+			<%= link_to 'Back', faqs_path %>
+	</div>
+</div>

@@ -1,10 +1,14 @@
+<% provide(:title, 'Checkout') %>
 <div class = "row">
-	<h2>Checkout</h2>
-	<hr />
-	<%= form_tag transactions_path do %>
-		<%= render 'customer_form' unless current_user.has_payment_info?  %>
-		<p>Please enter your payment details:</p>
-		<div id = "dropin" ></div>
-		<%= submit_tag "Pay £#{sprintf("%.2f", current_user.cart_total_price)}", class: "btn btn-primary" %>
-	<%end%>
+	<div class = "col-md-9 columns">
+		<h4>Checkout</h4>
+		<hr />
+		<%= form_tag transactions_path do %>
+			<%= render 'customer_form' unless current_user.has_payment_info?  %>
+			<p>Please enter your payment details:</p>
+			<div id = "dropin" ></div>
+			<%= submit_tag "Pay £#{sprintf("%.2f", current_user.cart_total_price)}", class: "btn btn-primary" %>
+		<%end%>
+
+	</div>
 </div>
