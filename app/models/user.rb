@@ -37,10 +37,11 @@ class User < ActiveRecord::Base
   end
 
   def purchase?(service)
-	  service.include?(service)
+	  services.include?(service)
   end
 
   def has_payment_info?
+	  braintree_customer_id
   end
 
   

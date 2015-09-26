@@ -6,12 +6,12 @@
 		<p>You've selected <%= pluralize(current_user.cart_count, "service") %>.</p>
 
 		<% @cart_services.each do |service| %>
-			<div data-equalizer class = "cart-service">
+			<div class = "cart-service">
 				<div class = "label label-lg">
 					<%=link_to service_path(service) do%>
 						<h4><%=service.name%></h4>
 						<p>£<%= sprintf("%.2f", service.price) %>
-							<h4><%= link_to "", class: "remove", data: {targetUrl: remove_from_cart_path(service)}, reload: true  do %>
+					<h4><%= link_to "", class: "remove", title: "Remove #{service.name} from cart", data: {targetUrl: remove_from_cart_path(service)}, reload: true  do %>
 								<i class = "glyphicon glyphicon-remove-sign"><span></span></i>
 							<%end%></h4>
 						</p>
@@ -21,6 +21,8 @@
 				</div>
 			</div>
 		<%end%>
+
+		<%= link_to "Checkout", new_transaction_path, class: "btn btn-primary" unless current_user.get_cart_services.blank?%>
 
 	</div>
 </div>

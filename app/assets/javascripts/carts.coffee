@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(window).load ->
-  $('#mycart .remove').click (e) ->
+  $('#mycart .glyphicon-remove-sign').click (e) ->
     e.preventDefault()
     $this = $(this).closest('a')
     url = $this.data('targeturl')
