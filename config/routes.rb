@@ -20,8 +20,8 @@ Rails.application.routes.draw do
    root 'main#index'
 
    get  'about' 	=>  'main#about'
-   get  'contacts'	=>  'contact#new'
-   post 'contacts'	=>  'contact#create'
+   get  'contacts'	=>  'contacts#new'
+   post 'contacts'	=>  'contacts#create'
    get  'faq'   	=>  'main#faq'
    get  'services'	=>  'services#index'
 

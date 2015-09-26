@@ -8,12 +8,12 @@
 		<p>We'd love to hear from you. You can either send us an email or use our contact form</p>
 		<%= form_for(@contact) do |f|%>
 			<%if @contact.errors.any?%>
-				<div id = "error_explanation" class = "alert-danger">
-					<h3><%= pluralize(@contact.errors.count, "error")%></h3>
+				<h3><%= pluralize(@contact.errors.count, "error")%>
 					<ul>
 						<%@contact.errors.full_messages.each do |message|%>
 							<li><%= message %></li>
-						<%end%>
+				</h3>
+			<%end%>
 					</ul>
 				</div>
 			<%end%>
@@ -50,7 +50,7 @@
 			<br />
 			<div class = "row">
 				<div class = "col-md-3">
-					<%= f.submit "Send", class: "button"%>
+					<%= f.submit "Send", class: "btn btn-primary", reload: true%>
 				</div>
 			</div>
 		<%end%>
