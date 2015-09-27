@@ -5,9 +5,6 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.all
-    @services.each do |service|
-	    @cart_action = service.cart_action current_user.try :id
-    end
   end
 
   # GET /services/1
@@ -15,7 +12,6 @@ class ServicesController < ApplicationController
   def show
 	  @service = Service.find(params[:id])
 	  @cart_action = @service.cart_action current_user.try :id
-#	 @admin = User.find(current_user.id).admin unless current_user.id.nil?
   end
 
   # GET /services/new

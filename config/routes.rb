@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	  put 'cart', to: 'services#purchased'
   end
   devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources :carousels #, only: [:new, :create, :edit, :delete]
+  resources :carousels
   resources 'contacts', only: [:new, :create]
   resource 'cart', only: [:show] do
 	  put 'add/:service_id', to: 'carts#add', as: :add_to
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   get 'transactions'	=>  'transactions#new'
   
 
-#   resources :carousel, only[:image_url, :image_description]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

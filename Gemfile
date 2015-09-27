@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'figaro', '~> 0.7.0'
   gem 'gon', '~> 5.1.2'
   gem 'mail_form', '~> 1.5.0'
+  gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

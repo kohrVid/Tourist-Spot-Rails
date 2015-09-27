@@ -1,7 +1,7 @@
 <% provide(:title, '') %>
-<div class = "row">
+<div class = "row" style = "padding-bottom: 15px;">
 	<div class = "col-md-12">
-		<div id = "carousel-example-generic" class = "carousel slide" data-interval = "3000" data-ride = "carousel">
+		<div id = "carousel-example-generic" class = "carousel slide" style = "width: 700px; margin: 0 auto;" data-interval = "3000" data-ride = "carousel">
 			<ol class = "carousel-indicators">
 				<li data-target = "#carousel-example-generic" data-slide-to = "0" class = "active"></li>
 				<li data-target = "#carousel-example-generic" data-slide-to = "1" class = ""></li>
@@ -29,11 +29,12 @@
 			</a>
 		</div>
 
-		<hr />
 	</div>	
 </div>
 
 
+<div class = "row">
+</div>
 <div class = "row">
 	<% @carousel.each do |i|  %>
 		<div class = "col-md-4">

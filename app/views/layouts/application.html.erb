@@ -22,7 +22,9 @@
 			<div class = "col-md-8">
 
 				<%= render "layouts/header"%>
-				<hr style = "margin-top: 0 !important;" />
+				<% unless yield(:title) == '' %>
+					<hr style = "margin-top: 0 !important;" />
+				<%end%>
 				<%= render "layouts/alerts"%>
 				<%= yield %>
 				<hr />
