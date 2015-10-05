@@ -16,6 +16,6 @@ CSV.foreach(Rails.root.join("db/seeds_data/service.csv"), headers: true) do |row
 end
 require 'csv'
 CSV.foreach(Rails.root.join("db/seeds_data/faqs.csv"), headers: true) do |row|
-	Carousel.find_or_create_by(question: row[0], answer: row[1])
+	Faq.find_or_create_by(question: row[0], answer: row[1])
 end
 
