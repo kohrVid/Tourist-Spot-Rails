@@ -20,10 +20,9 @@ CSV.foreach(Rails.root.join("db/seeds_data/faqs.csv"), headers: true) do |row|
 end
 
 #Adm
-["id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "admin", "braintree_customer_id"]
 User.create!(
      	     email: "kohrVid@zoho.com",
-	     password: <%= ENV["adm"] %>,
-	     password_confirmation: <%= ENV["adm"]%>,
+	     password: ENV["adm"],
+	     password_confirmation: ENV["adm"],
 	     admin: true
 	     )
