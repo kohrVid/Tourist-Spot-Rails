@@ -1,14 +1,14 @@
 class Contact < MailForm::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-	attributes :name, :presence => true,
+	attributes :name, :validate => true,
 		:length => { :maximum => 50}
-        attributes :email, :presence => true,
+        attributes :email, :validate => true,
 		:length => { :maximum => 255 },
 		:format => VALID_EMAIL_REGEX,
 		:uniqueness => true,
 		:case_sensitive => false
-	attributes :message, :presence => true
+	attributes :message, :validate => true
 
 	def headers
 		{

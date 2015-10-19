@@ -37,7 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'braintree', '~> 2.33.1'
   gem 'figaro', '~> 0.7.0'
   gem 'gon', '~> 5.1.2'
-  gem 'mail_form', '~> 1.5.0'
+  gem 'mail_form', '~> 1.5.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -45,6 +45,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
  # gem 'byebug'
+	gem 'foreman'
 end
 
 group :development do
