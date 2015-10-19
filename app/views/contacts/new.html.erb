@@ -8,18 +8,16 @@
 		<p>We'd love to hear from you. You can either send us an email or use our contact form</p>
 		<%= form_for(@contact) do |f|%>
 			<%if @contact.errors.any?%>
-				<h3><%= pluralize(@contact.errors.count, "error")%>
+				<h3><%= pluralize(@contact.errors.count, "error")%></h3>
 					<ul>
 						<%@contact.errors.full_messages.each do |message|%>
 							<li><%= message %></li>
-				</h3>
 			<%end%>
 					</ul>
 				</div>
 			<%end%>
 
 			<br />
-			<div class = "row">
 				<div class = "col-md-3">
 					<%= f.label :name %>
 				</div>
@@ -36,9 +34,7 @@
 				<div class = "col-md-9">
 					<%= f.email_field :email, class: "form-control", placeholder: "Your email" %>
 				</div>
-			</div>
 			<br />
-			<div class = "row">
 				<div class = "col-md-3">
 					<%= f.label :message %>
 				
@@ -46,13 +42,10 @@
 				<div class = "col-md-9">
 					<%= f.text_area :message, rows: "3", class: "form-control" %>
 				</div>
-			</div>
 			<br />
-			<div class = "row">
 				<div class = "col-md-3">
 					<%= f.submit "Send", class: "btn btn-primary", reload: true%>
 				</div>
-			</div>
 		<%end%>
 </div>
 
