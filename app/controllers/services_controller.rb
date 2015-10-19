@@ -1,20 +1,15 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
-  # GET /services
-  # GET /services.json
   def index
     @services = Service.all
   end
 
-  # GET /services/1
-  # GET /services/1.json
   def show
 	  @service = Service.find(params[:id])
 	  @cart_action = @service.cart_action current_user.try :id
   end
 
-  # GET /services/new
   def new
     @service = Service.new
     if current_user && current_user.admin?
@@ -22,11 +17,9 @@ class ServicesController < ApplicationController
     else
 	 render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
     end
-
   end
  
 
-  # GET /services/1/edit
   def edit
 	 if current_user && current_user.admin?
 		 render 'edit'
@@ -36,24 +29,20 @@ class ServicesController < ApplicationController
 
   end
 
-  # POST /services
-  # POST /services.json
   def create
-    @service = Service.new(service_params)
+    if current_user && current_user.admin?
+	    @service = Service.new(service_params)
 
-    respond_to do |format|
-      if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @service }
-      else
-        format.html { render :new }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
+	    respond_to do |format|
+	      if @service.save
+		format.html { redirect_to @service, notice: 'Service was successfully created.' }
+	      else
+		format.html { render :new }
+	      end
+	    end
     end
   end
 
-  # PATCH/PUT /services/1
-  # PATCH/PUT /services/1.json
   def update
     respond_to do |format|
       if @service.update(service_params)
@@ -66,8 +55,6 @@ class ServicesController < ApplicationController
     end
   end
 
-  # DELETE /services/1
-  # DELETE /services/1.json
   def destroy
     @service.destroy
     respond_to do |format|

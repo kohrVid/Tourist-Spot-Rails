@@ -8,10 +8,10 @@
 	<hr />
 	<div class = "row text-center">
 		<% @services.each do |service| %>
-			<%@cart_action = service.cart_action current_user.try :id %>
+			<% @cart_action = service.cart_action current_user.try :id %>
 			<div class = "col-md-4">
 				<div class = "panel panel-success">
-					<%= service.name %>
+					<%= link_to service.name, service %>
 				</div>
 				<div class = "panel panel-default">
 					<div class = "panel-heading">£<%= sprintf("%.2f", service.price) %></div>
@@ -21,7 +21,7 @@
 					<div class = "panel-body"><%= service.food %></div>
 					<div class = "panel-footer">
 
-						<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(service), removeUrl: remove_from_cart_path(service)}, reload: true do %>
+						<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(service), removeUrl: remove_from_cart_path(service)} do %>
 							<i class = "glyphicon glyphicon-shopping-cart"></i>
 							<span><%=@cart_action%></span> Cart
 						<%end%>

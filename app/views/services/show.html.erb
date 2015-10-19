@@ -28,7 +28,7 @@
 		  <%= @service.food %>
 		</p>
 
-		<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)} do %>
+		<%=link_to "", type: "button", class: "btn btn-primary active", data: {target: @cart_action, addUrl: add_to_cart_path(@service), removeUrl: remove_from_cart_path(@service)}, reload: true do %>
 			<i class = "glyphicon glyphicon-shopping-cart"></i>
 			<span><%=@cart_action%></span> Cart
 		<%end%>
