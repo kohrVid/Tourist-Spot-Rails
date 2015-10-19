@@ -11,9 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
-Rakefile
 #/config/database.yml
 #/config/secrets.yml
-/.env/*
+#/.env/*
 # Ignore application configuration
 #/config/application.yml
