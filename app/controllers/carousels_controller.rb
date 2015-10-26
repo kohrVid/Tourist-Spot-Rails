@@ -46,8 +46,8 @@ class CarouselsController < ApplicationController
     @carousel = Carousel.new(carousel_params)
 
     respond_to do |format|
-      if @carousel.save
-        format.html { redirect_to @carousel, notice: 'Carousel was successfully created.' }
+      if @carousel.save  
+	format.html { redirect_to @carousel, notice: 'Carousel was successfully created.' }
         format.json { render :show, status: :created, location: @carousel }
       else
         format.html { render :new }
